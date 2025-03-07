@@ -9,12 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^1.2.1",
+    "@ai-sdk/react": "^1.1.21",
+    "ai": "^4.1.54",
     "axios": "^1.8.1",
     "framer-motion": "^12.4.10",
     "mongoose": "^8.11.0",
     "next": "15.1.7",
     "next-auth": "^4.24.11",
     "nodemailer": "^6.10.0",
+    "openai": "^4.86.2",
+    "openapi": "^1.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

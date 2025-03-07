@@ -1,4 +1,5 @@
 
+import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import Provider from "@/components/Provider";
 import "@/styles/global.css";
@@ -13,15 +14,20 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Provider>
-          <div className="main">
-            <div className="gradient" />
-          </div>
-          <main className="app">
-            <Nav/>
-            {children}
-          </main>
-        </Provider>
+        <main>
+          <Provider>
+            <div className="main">
+              <div className="gradient" />
+            </div>
+            <main className="app">
+              <Nav />
+              {children}
+            </main>
+          </Provider>
+        </main>
+        {/*<footer className="flex text-end items-end mb-0">
+          <Footer />
+        </footer>*/}
       </body>
     </html>
   );

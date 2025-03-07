@@ -16,6 +16,10 @@
   justify-content: center;
   padding: 120px 24px 160px 24px;
   pointer-events: none;
+  background:url("/images/image.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 198vh 50vw;
 }
 
 .main:before {
@@ -119,7 +123,7 @@ input, select, button {
 }
 
 .orange_gradient {
-  @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-amber-500  via-orange-600 to-yellow-500 bg-clip-text text-transparent;
 }
 
 .green_gradient {

@@ -24,7 +24,7 @@ function CareerMatch() {
 
 
   return (
-    <div className="flex my-6 flex-col">
+    <div className="flex my-6 flex-col ">
       <h2 className="m-2">Career Match Finder</h2>
       <form onSubmit={handleSubmit}>
         <input

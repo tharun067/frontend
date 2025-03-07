@@ -1,58 +1,59 @@
 "use client";
 
-import CareerMatch from '@/components/CareerMatch';
-import GrowthPrediction from '@/components/GrowthPrediction';
-import TrendForecast from '@/components/TrendForecast';
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import CareerMatch from "@/components/CareerMatch";
+import GrowthPrediction from "@/components/GrowthPrediction";
+import TrendForecast from "@/components/TrendForecast";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import ChatPage from "@/components/Chat";
+import Chatbot from "@/components/Chat";
 
 function Main() {
-    const [activeForm, setActiveForm] = useState(null);
+  const [activeForm, setActiveForm] = useState(null);
 
-    const toggleForm = (form) => {
-        setActiveForm(activeForm === form ? null : form);
-    };
+  const toggleForm = (form) => {
+    setActiveForm(activeForm === form ? null : form);
+  };
 
-    return (
-        <div className="p-6 justify-evenly ">
-            <h1 className="text-center text-3xl mb-8">AI Career Guidance System</h1>
+  return (
+    <div className="flex">
+      <main className=" relative flex items-center justify-end w-screen min-h-screen bg-gradient mr-40 flex-grow ">
+        <div className="glassmorphism-container p-8 w-full max-w-2xl">
+          <h1 className="orange_gradient text-3xl font-bold text-gray-800">AI Career Guidance</h1>
+          <p className="text-gray-600 mt-2">Find your perfect career path.</p>
 
-            <div className="space-y-4">
-                <div className='m-7'>
-                    <h2 className="cursor-pointer text-xl" onClick={() => toggleForm('careerMatch')}>
-                        🔍 Career Match Finder
-                    </h2>
-                    {activeForm === 'careerMatch' && (
-                        <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }}>
-                            <CareerMatch />
-                        </motion.div>
-                    )}
-                </div>
-
-                <div className='m-7'>
-                    <h2 className="cursor-pointer text-xl" onClick={() => toggleForm('growthPrediction')}>
-                        📈 Career Growth Predictor
-                    </h2>
-                    {activeForm === 'growthPrediction' && (
-                        <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }}>
-                            <GrowthPrediction />
-                        </motion.div>
-                    )}
-                </div>
-
-                <div className='m-7'>
-                    <h2 className="cursor-pointer text-xl" onClick={() => toggleForm('trendForecast')}>
-                        🔮 Career Trend Forecaster
-                    </h2>
-                    {activeForm === 'trendForecast' && (
-                        <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }}>
-                            <TrendForecast />
-                        </motion.div>
-                    )}
-                </div>
-            </div>
+          <div className="space-y-5 mt-6">
+            {[
+              { id: "careerMatch", title: "Career Match Finder", Component: CareerMatch },
+              { id: "growthPrediction", title: "Career Growth Predictor", Component: GrowthPrediction },
+              { id: "trendForecast", title: "Career Trend Forecaster", Component: TrendForecast },
+            ].map(({ id, title, Component }) => (
+              <div key={id} className="glassmorphism-card p-5">
+                <h2
+                  className="cursor-pointer text-lg font-medium flex justify-between items-center hover:text-orange-600"
+                  onClick={() => toggleForm(id)}
+                >
+                  {title}
+                  <span className={`transition-transform ${activeForm === id ? "rotate-180" : "rotate-0"}`}>▼</span>
+                </h2>
+                {activeForm === id && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="mt-4 p-4"
+                  >
+                    <Component />
+                  </motion.div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
-    );
+      </main>
+      <Chatbot/>
+    </div>
+  );
 }
 
 export default Main;

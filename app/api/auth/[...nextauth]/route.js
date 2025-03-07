@@ -46,7 +46,7 @@ const handler = NextAuth({
             }
         },
         async redirect({ url, baseUrl }) {
-            return baseUrl;
+            return "/home";
         }
     },
     pages: {

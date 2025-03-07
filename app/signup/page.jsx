@@ -30,7 +30,7 @@ function SignupSignin() {
     }, [session, router]);
     return (
         <>
-            <div className='flex justify-center items-center md:w-1/3  w-1/2  bg-slate-500 rounded-lg border-t-2 m-32'>
+            <div className='flex justify-center items-center md:w-1/3  w-1/2  bg-500 rounded-lg border-t-2 m-32'>
                 <div className="flex flex-col space-around">
                     {providers && Object.values(providers).filter(provider => provider.name === "Google" || provider.name === "GitHub" || provider.name === "Facebook").map((provider) => (
                         <button

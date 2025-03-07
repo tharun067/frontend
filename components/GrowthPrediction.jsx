@@ -23,7 +23,7 @@ function GrowthPrediction() {
     }
     return (
         <div>
-            <h2>Career Growth Predictor</h2>
+            <h2 className="m-3">Career Growth Predictor</h2>
             <form onSubmit={handleSubmit}>
                 <select value={education} onChange={(e) => setEducation(e.target.value)} required>
                     <option value="">Select Education Level</option>
